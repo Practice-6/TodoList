@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TodoList</string>
+    <string name="nav_important">Important</string>
+    <string name="nav_all_tasks">All tasks</string>
+    <string name="nav_standard_list">Standard list</string>
+    <string name="nav_custom_lists">Your lists</string>
+    <string name="nav_open_drawer">Open navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="nav_important">Важно</string>
+    <string name="nav_all_tasks">Все задачи</string>
+    <string name="nav_standard_list">Стандартный список</string>
+    <string name="nav_custom_lists">Ваши списки</string>
+    <string name="nav_open_drawer">Открыть навигационную панель</string>
+    <string name="nav_close_drawer">Закрыть навигационную панель</string>
+</resources>

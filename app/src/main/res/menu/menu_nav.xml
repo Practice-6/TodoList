@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/main_items"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_important"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="@string/nav_important"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_all_tasks"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="@string/nav_all_tasks"/>
+        <item
+            android:id="@+id/nav_standard_list"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="@string/nav_standard_list"/>
+    </group>
+
+    <!-- TODO: Удалить демонстранционный список-->
+    <group android:id="@+id/custom_lists_items"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_example_list"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="Example list"/>
+    </group>
+</menu>
