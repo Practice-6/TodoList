@@ -3,12 +3,15 @@ package com.dimaion666gmail.todolist;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Начальное значение заголовка активности
+        setTitle(R.string.nav_important);
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
                 drawer,
@@ -33,6 +39,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState == null) {
+            System.out.println("Fragment spawn");
+            Fragment fragment = new ListContainerFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.add(R.id.content_frame, fragment);
+            ft.commit();
+        } else {
+            setTitle(savedInstanceState.getString("Title"));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle bundle) {
+        bundle.putString("Title", getTitle().toString());
+        super.onSaveInstanceState(bundle);
     }
 
     @Override
@@ -45,24 +67,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Fragment fragment = null;
 
         // TODO: заменить быдлокод
         switch (id) {
             case R.id.nav_important:
-                System.out.println("Important");
+                setTitle(R.string.nav_important);
+                fragment = new ListContainerFragment();
                 break;
             case R.id.nav_all_tasks:
-                System.out.println("All tasks");
+                setTitle(R.string.nav_all_tasks);
+                fragment = new ListContainerFragment();
                 break;
             case R.id.nav_standard_list:
-                System.out.println("Standard list");
+                setTitle(R.string.nav_standard_list);
+                fragment = new ListContainerFragment();
                 break;
             default:
-                System.out.println("Default");
+                setTitle(String.valueOf(id));
+                fragment = new ListContainerFragment();
+                break;
         }
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
