@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         if (savedInstanceState == null) {
             System.out.println("Fragment spawn");
@@ -85,10 +87,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_standard_list:
                 setTitle(R.string.nav_standard_list);
-                fragment = new ListContainerFragment();
-                break;
-            default:
-                setTitle(String.valueOf(id));
                 fragment = new ListContainerFragment();
                 break;
         }
