@@ -3,17 +3,62 @@ package com.dimaion666gmail.todolist;
 public class Task {
     private boolean isDone;
     private String title;
+    private String listContainer;
     private boolean isImportant;
 
     public static final Task[] tasks = {
-            new Task(true, "Родиться", false),
-            new Task(false, "Пожить", false),
-            new Task(false, "Умереть", true)
+            new Task(true, "Родиться",
+                    "* Задачки от Жака Фреско", false),
+            new Task(false, "Пожить",
+                    "* Задачки от Жака Фреско", false),
+            new Task(false, "Умереть",
+                    "* Задачки от Жака Фреско", true),
+            new Task(true, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", true),
+            new Task(true, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", true),
+            new Task(true, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", true),
+            new Task(true, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", false),
+            new Task(false, "Продать яблоки",
+                    "* Задачки от Стива Джобса", true)
     };
 
-    private Task(boolean isDone, String title, boolean isImportant) {
+    private Task(boolean isDone, String title, String listContainer, boolean isImportant) {
         this.isDone = isDone;
         this.title = title;
+        this.listContainer = listContainer;
+        this.isImportant = isImportant;
+    }
+
+    public void setIsDone(boolean isDone) {
+        this.isDone = isDone;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setListContainer(String listContainer) {
+        this.listContainer = listContainer;
+    }
+
+    public void setIsImportant(boolean isImportant) {
         this.isImportant = isImportant;
     }
 
@@ -25,7 +70,11 @@ public class Task {
         return title;
     }
 
-    public boolean isImportant() {
+    public String getListContainer() {
+        return listContainer;
+    }
+
+    public boolean getIsImportant() {
         return isImportant;
     }
 }

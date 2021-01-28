@@ -5,16 +5,50 @@
     android:id="@+id/task_card_view"
     android:layout_width="match_parent"
     android:layout_height="75dp"
-    card_view:cardElevation="4dp"
-    card_view:cardCornerRadius="4dp">
+    android:layout_margin="10dp"
+    card_view:cardElevation="15dp"
+    card_view:cardCornerRadius="8dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/info_is_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NoDoneText"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
 
+        <TextView
+            android:id="@+id/info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:text="NoTitleText"
+            android:layout_toRightOf="@id/info_is_done"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="5dp"/>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/info_list_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:text="NoListContainerText"
+            android:layout_below="@id/info_title"
+            android:layout_alignLeft="@id/info_title"/>
+
+        <TextView
+            android:id="@+id/info_is_important"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NoImportantText"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"/>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
