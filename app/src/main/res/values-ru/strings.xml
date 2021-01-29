@@ -7,4 +7,5 @@
     <string name="nav_custom_lists">Ваши списки</string>
     <string name="nav_open_drawer">Открыть навигационную панель</string>
     <string name="nav_close_drawer">Закрыть навигационную панель</string>
+    <string name="task_editor">Редактор задачи</string>
 </resources>

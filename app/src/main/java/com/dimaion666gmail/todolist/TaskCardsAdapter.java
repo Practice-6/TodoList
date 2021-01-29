@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +16,11 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
     private String[] title;
     private String[] listContainer;
     private boolean[] isImportant;
+    private Listener listener;
+
+    interface Listener {
+        void onClick(int position);
+    }
 
     public TaskCardsAdapter(boolean[] isDone, String[] title, String[] listContainer,
                             boolean[] isImportant) {
@@ -24,6 +30,7 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
         this.isImportant = isImportant;
     }
 
+    @NonNull
     @Override
     public TaskCardsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         CardView cv = (CardView) LayoutInflater.from(parent.getContext())
@@ -44,11 +51,24 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
         titleTextView.setText(String.valueOf(title[position]));
         listContainerTextView.setText(String.valueOf(listContainer[position]));
         isImportantToggleButtonView.setChecked(isImportant[position]);
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClick(position);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return title.length;
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

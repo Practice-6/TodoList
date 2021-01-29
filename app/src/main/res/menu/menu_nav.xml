@@ -18,7 +18,6 @@
             android:title="@string/nav_standard_list"/>
     </group>
 
-    <!-- TODO: Удалить демонстранционный список-->
     <group android:id="@+id/custom_lists_items"
         android:checkableBehavior="single">
     </group>

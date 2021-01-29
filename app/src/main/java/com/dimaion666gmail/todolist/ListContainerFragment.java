@@ -1,5 +1,6 @@
 package com.dimaion666gmail.todolist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -43,6 +44,15 @@ public class ListContainerFragment extends Fragment {
         taskRecycler.setAdapter(taskCardsAdapter);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
         taskRecycler.setLayoutManager(layoutManager);
+
+        taskCardsAdapter.setListener(new TaskCardsAdapter.Listener() {
+            @Override
+            public void onClick(int position) {
+               Intent intent = new Intent(getActivity(), TaskEditorActivity.class);
+               intent.putExtra(TaskEditorActivity.EXTRA_TASK_ID, position);
+               getActivity().startActivity(intent);
+            }
+        });
         return taskRecycler;
     }
 }
