@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,15 +35,15 @@ public class TaskCardsAdapter extends RecyclerView.Adapter<TaskCardsAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         CardView cardView = holder.cardView;
 
-        TextView isDoneTextView = cardView.findViewById(R.id.info_is_done);
+        ToggleButton isDoneToggleButtonView = cardView.findViewById(R.id.info_is_done);
         TextView titleTextView = cardView.findViewById(R.id.info_title);
         TextView listContainerTextView = cardView.findViewById(R.id.info_list_container);
-        TextView isImportantTextView = cardView.findViewById(R.id.info_is_important);
+        ToggleButton isImportantToggleButtonView = cardView.findViewById(R.id.info_is_important);
 
-        isDoneTextView.setText(String.valueOf("Сделано: " + isDone[position]));
+        isDoneToggleButtonView.setChecked(isDone[position]);
         titleTextView.setText(String.valueOf(title[position]));
         listContainerTextView.setText(String.valueOf(listContainer[position]));
-        isImportantTextView.setText(String.valueOf("Важно: " + isImportant[position]));
+        isImportantToggleButtonView.setChecked(isImportant[position]);
     }
 
     @Override

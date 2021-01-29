@@ -4,51 +4,74 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/task_card_view"
     android:layout_width="match_parent"
-    android:layout_height="75dp"
+    android:layout_height="65dp"
     android:layout_margin="10dp"
-    card_view:cardElevation="15dp"
+    card_view:cardElevation="5dp"
     card_view:cardCornerRadius="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <ToggleButton
             android:id="@+id/info_is_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NoDoneText"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_done_states"
+            android:textOff=""
+            android:textOn=""/>
 
-        <TextView
-            android:id="@+id/info_title"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:text="NoTitleText"
+            android:orientation="vertical"
             android:layout_toRightOf="@id/info_is_done"
             android:layout_centerVertical="true"
-            android:layout_marginVertical="5dp"/>
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:text="NoTitleText"
+                android:layout_marginHorizontal="5dp"/>
 
-        <TextView
-            android:id="@+id/info_list_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            android:text="NoListContainerText"
-            android:layout_below="@id/info_title"
-            android:layout_alignLeft="@id/info_title"/>
+            <TextView
+                android:id="@+id/info_list_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#A59D9D"
+                android:text="NoListContainerText"
+                android:layout_below="@id/info_title"
+                android:layout_alignLeft="@id/info_title"/>
+        </RelativeLayout>
 
-        <TextView
+        <ToggleButton
             android:id="@+id/info_is_important"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:text="NoImportantText"
+            android:layout_toLeftOf="@id/info_delete"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_important_states"
+            android:textOff=""
+            android:textOn=""/>
+
+        <ImageButton
+            android:id="@+id/info_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"/>
+            android:layout_marginRight="10dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_delete"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
